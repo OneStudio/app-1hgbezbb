@@ -1,0 +1,27 @@
+{
+        "name": "one-start-starter",
+        "type": "module",
+        "scripts": {
+          "dev": "vinxi dev",
+          "build": "vinxi build --preset cloudflare-pages",
+          "start": "vinxi start"
+        },
+        "dependencies": {
+          "drizzle-orm": "^0.29.4",
+          "@libsql/client": "^0.5.2",
+          "@solidjs/router": "^0.12.3",
+          "@solidjs/start": "^0.5.9",
+          "@unocss/reset": "^0.58.5",
+          "date-fns": "^3.3.1",
+          "marked": "^12.0.0",
+          "solid-js": "^1.8.15",
+          "unocss": "^0.58.5",
+          "vinxi": "^0.2.1"
+        },
+        "engines": {
+          "node": ">=18"
+        },
+        "devDependencies": {
+          "dotenv-expand": "^11.0.6"
+        }
+      }

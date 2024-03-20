@@ -1,0 +1,29 @@
+
+  on: [push]
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        deployments: write
+      name: Deploy to Cloudflare Pages
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        - uses: pnpm/action-setup@v3
+          with:
+            version: 8
+        # Run your project's build step
+        - name: Build
+          run: pnpm install && pnpm run build
+        - name: Publish
+          uses: cloudflare/pages-action@103172229c03bce8b1c80300c7c5d7e64976b11f
+          with:
+            wranglerVersion: "3"
+            apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+            accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+            gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+            projectName: app-1hgbezbb
+            directory: dist
+            branch: main
+            
